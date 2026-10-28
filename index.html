@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d1b">
+<title>To My Favorite Person ♡</title>
+<style>
+:root{--night:#100d1b;--plum:#24152b;--rose:#ff9fca;--cream:#fff2e7;--muted:#d9c5d5;--glass:rgba(255,255,255,.075)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--cream);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 15% 10%,#40213e 0,transparent 38%),radial-gradient(ellipse at 85% 35%,#242044 0,transparent 38%),var(--night);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(1px 1px at 15% 22%,white 50%,transparent),radial-gradient(2px 2px at 80% 14%,white 50%,transparent),radial-gradient(1px 1px at 60% 72%,white 50%,transparent),radial-gradient(1px 1px at 30% 82%,white 50%,transparent),radial-gradient(2px 2px at 92% 64%,white 50%,transparent);background-size:240px 240px}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(900px,92%);margin:auto}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:70px 0 50px;position:relative}
+.moon{width:78px;height:78px;border-radius:50%;margin:0 auto 28px;background:#fff0d0;box-shadow:0 0 35px #ffe8b777,0 0 90px #ffb6dc33;position:relative;animation:float 4s ease-in-out infinite}
+.moon:after{content:"";position:absolute;width:72px;height:72px;border-radius:50%;background:#24152b;left:19px;top:-9px}
+.eyebrow{letter-spacing:.24em;text-transform:uppercase;font:11px Arial,sans-serif;color:#f2b8d7}
+h1{font-size:clamp(2.8rem,9vw,6.5rem);font-weight:normal;line-height:.98;margin:0 auto 24px;max-width:850px}
+h1 em{color:var(--rose);font-weight:normal}
+.lead{max-width:590px;margin:0 auto;color:var(--muted);font-size:clamp(1rem,2.6vw,1.25rem);line-height:1.85}
+.pill{border:1px solid #ffc0dd70;background:linear-gradient(135deg,#f99dca22,#ffffff08);color:#fff4fa;border-radius:999px;padding:14px 22px;margin-top:32px;transition:.3s;box-shadow:0 0 0 transparent}
+.pill:hover{transform:translateY(-3px);box-shadow:0 8px 35px #ff8fc52b;background:#ff9fca22}
+.hint{font:11px Arial,sans-serif;letter-spacing:.12em;color:#bba5bc;margin-top:18px}
+section{padding:80px 0;position:relative}
+.section-label{color:var(--rose);font:11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;text-align:center}
+h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:normal;text-align:center;margin:14px 0 24px}
+.letter{max-width:730px;margin:0 auto;padding:clamp(23px,5vw,48px);border:1px solid #ffffff18;border-radius:24px;background:linear-gradient(145deg,#ffffff0d,#ffffff04);box-shadow:0 25px 90px #00000022;position:relative;overflow:hidden}
+.letter:before{content:"♡";position:absolute;right:20px;top:-24px;font-size:120px;color:#ff9fca0b}
+.letter p{font-size:clamp(1.02rem,2.3vw,1.16rem);line-height:2;color:#f3e3ee;margin:0 0 20px}
+.letter p:last-child{margin-bottom:0}
+.signature{color:var(--rose)!important;font-style:italic}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px;margin-top:38px}
+.polaroid{background:#fff8f0;padding:10px 10px 16px;color:#382434;box-shadow:0 15px 40px #0005;transform:rotate(var(--r));transition:transform .35s,box-shadow .35s;animation:appear .8s both}
+.polaroid:nth-child(2){animation-delay:.12s}.polaroid:nth-child(3){animation-delay:.24s}.polaroid:nth-child(4){animation-delay:.36s}
+.polaroid:hover{transform:rotate(0deg) translateY(-9px) scale(1.04);box-shadow:0 22px 48px #0008;z-index:2}
+.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#ead8e2}
+.polaroid p{text-align:center;font-size:13px;margin:12px 0 0}
+.gallery-note{text-align:center;color:var(--muted);font:12px Arial,sans-serif;line-height:1.8;margin-top:20px}
+.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.promise{border:1px solid #ffffff17;background:#ffffff07;border-radius:18px;padding:24px 18px;text-align:center}
+.promise span{font-size:28px;display:block;margin-bottom:12px}
+.promise h3{font-size:19px;font-weight:normal;color:#ffc2df;margin:0 0 10px}
+.promise p{font:13px/1.8 Arial,sans-serif;color:#d4c1d4;margin:0}
+.final-card{text-align:center;border:1px solid #ffb6dc30;border-radius:26px;padding:clamp(26px,6vw,55px);background:radial-gradient(ellipse at top,#ff9fca16,transparent 70%),#ffffff05}
+.final-card p{max-width:650px;margin:0 auto;color:var(--muted);font-size:1.08rem;line-height:1.9}
+.reveal{display:none;max-width:650px;margin:26px auto 0;padding:22px;border-radius:18px;background:#ff9fca12;border:1px solid #ff9fca35;color:#fff0f7;line-height:1.9;animation:fadeUp .7s both}
+.reveal.show{display:block}
+footer{text-align:center;padding:35px 15px 50px;color:#9e8ba5;font:11px Arial,sans-serif;letter-spacing:.08em}
+.music{position:fixed;right:16px;bottom:16px;z-index:5;border:1px solid #ffffff25;background:#20152bdb;color:#fff0f8;border-radius:999px;padding:11px 15px;backdrop-filter:blur(12px);font:12px Arial,sans-serif;box-shadow:0 8px 28px #0005}
+.heart{position:fixed;bottom:-30px;left:var(--x);color:#ff9fca;pointer-events:none;z-index:0;opacity:0;animation:rise var(--d) linear forwards}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:10}
+@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.65}100%{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@keyframes appear{from{opacity:0;transform:translateY(20px) rotate(var(--r))}to{opacity:1;transform:rotate(var(--r))}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){section{padding:60px 0}.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.polaroid{padding:8px 8px 13px}.promise-grid{grid-template-columns:1fr;gap:10px}.promise{padding:20px}.moon{width:64px;height:64px}.moon:after{width:59px;height:59px;left:16px}.music{right:10px;bottom:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<audio id="song" src="lagu.mp3" loop preload="auto"></audio>
+<button class="music" id="musicBtn" aria-label="Play or pause music">♫ Play our song</button>
+<main>
+  <header class="hero">
+    <div class="wrap">
+      <div class="moon" aria-hidden="true"></div>
+      <div class="eyebrow">a little corner of the universe, just for you</div>
+      <h1>For my <em>favorite</em><br>person, Azalea ♡</h1>
+      
+      <button class="pill" onclick="document.querySelector('#letter').scrollIntoView({behavior:'smooth'})">Open the letter ♡</button>
+      <div class="hint">MADE WITH A HEART THAT CHOOSES YOU</div>
+    </div>
+  </header>
+
+  <section id="letter">
+    <div class="wrap">
+      <div class="section-label">words I hope you keep</div>
+      <h2>Dear, sayang…</h2>
+      <article class="letter">
+        <p>Hi, sayang. 🤍</p>
+        <p>I buat semua ni because what i want yo say is i knoww u sekrangg tak okayy with your last relationshipp i knoww all that u get betrayy by ur last relayy but whatt i want to say is i wqant you to be happyy sayangg everydayy what u doingg sayangg and i will doo anything to make u happy sayangg anythingg. I waitt for you 10 months just to be with youu becausee i lovee youu soo muchh sayanggg i lovee you more thann i lovee myselff sayangg i knowww i takde papeee but i reallyy love youu i tryy my bestt to makeee u happyy everydayy everytimee and i tauu effortt i tak besarr but i will givee youuu my best effortt my full effortt becausee i know u deservee someoneee that reallyyy love youuu and i keep my promisee to takeecaree of youu sayanggg no matter whatt happenn azaleaa batrisyiaa. What i wantt right noww is justt youu sayangg its youuu azaleaa batrisyiaaa im sorryyy klauu u kecewa dengann i or anythingg im soo sorryyyy i will fix anthinggg i will do anythingg just to makee u happyy sayangg okayyyy i will makee suree thatt just cakap jee apee apee kat i okayy saayangg i be yourr listenerr okay sayangg i thinkk thats all fromm mee sayanggg havee a nicee dayy and have a nicee restt Norazaleaaa Batrisyiaaa okayy ILOVEEYOUSOOMUCHHH 🤍🤍🤍🤍 </p>
+
+        <p class="signature">With all the softness in my heart,<br>your Adel ♡</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="memories">
+    <div class="wrap">
+      <div class="section-label">little moments, big feelings</div>
+      <h2>Our tiny gallery ♡</h2>
+      <p class="lead">Four little frames for the memories that make my heart smile.</p>
+      <div class="gallery">
+        <div class="polaroid" style="--r:-4deg"><img src="photo1.jpg" alt="Two people holding hands"><p>my gorgeous sayang</p></div>
+        <div class="polaroid" style="--r:3deg"><img src="photo2.jpg" alt="Romantic pink flowers"><p>my soft place</p></div>
+        <div class="polaroid" style="--r:-2deg"><img src="photo3.jpg" alt="Golden sunset"><p>Love You</p></div>
+        <div class="polaroid" style="--r:4deg"><img src="photo4.jpg" alt="Flowers in soft light"><p>always, Azalea</p></div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">not just today</div>
+      <h2>Three little promises</h2>
+      <div class="promise-grid">
+        <div class="promise"><span>☾</span><h3>I wait</h3><p>I will wait for you sayang becausee u the onlyy onee i wantt in this lifee sayangg no other person</p></div>
+        <div class="promise"><span>♡</span><h3>I do my best</h3><p>I will do my bestt on our relationshipp becauseee i taknakk u sakit lagii okayy i will takecaree of youu sayangg</p></div>
+        <div class="promise"><span>✧</span><h3>I never cheat</h3><p>I promisee there is no third person in our relayyy and i promisee the onlyy onee my girlfriendd</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="final-card">
+        <div class="section-label">one last thing</div>
+        <h2>Before you go…</h2>
+        <p>Nahh sayangg one llittlee notee for youu sayanggg</p>
+        <button class="pill" id="surpriseBtn">A tiny surprise for you ✨</button>
+        <div class="reveal" id="surprise">Surprise, sayang! ♡ i will makee sureee u lovedd by me sayangg and i will makee suree i will do my bestt okayy sayanggg iloveyouuusoomuchh azaleaa and i keepp my promisee to youu okayy sayanggg sorryy kalauu takk cukuppp okayyy iloveyouuuu — Adel 🤍</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>MADE FOR SAYANG, WITH LOVE ♡ · TAKE CARE OF THAT BEAUTIFUL HEART</footer>
+<canvas id="confetti"></canvas>
+<script>
+const song=document.getElementById('song');
+const musicBtn=document.getElementById('musicBtn');
+let playing=false;
+async function toggleMusic(){
+  if(!playing){
+    try{await song.play();playing=true;musicBtn.textContent='♫ Pause our song';}
+    catch(e){musicBtn.textContent='♫ Add lagu.mp3 first';}
+  }else{song.pause();playing=false;musicBtn.textContent='♫ Play our song';}
+}
+musicBtn.addEventListener('click',toggleMusic);
+// Browsers usually block autoplay until a visitor interacts; this attempts it and leaves a clear play button if blocked.
+window.addEventListener('load',()=>{song.play().then(()=>{playing=true;musicBtn.textContent='♫ Pause our song';}).catch(()=>{});});
+document.getElementById('surpriseBtn').addEventListener('click',()=>{
+  const box=document.getElementById('surprise');
+  box.classList.toggle('show');
+  if(box.classList.contains('show')) shower();
+});
+function heart(){
+ const h=document.createElement('div');h.className='heart';h.textContent=['♡','♥','✧','ღ'][Math.floor(Math.random()*4)];
+ h.style.setProperty('--x',Math.random()*100+'vw');h.style.setProperty('--d',(7+Math.random()*6)+'s');h.style.fontSize=(12+Math.random()*18)+'px';
+ document.body.appendChild(h);setTimeout(()=>h.remove(),14000);
+}
+setInterval(heart,950);
+const canvas=document.getElementById('confetti'),ctx=canvas.getContext('2d');let bits=[],frame;
+function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}
+window.addEventListener('resize',resize);resize();
+function shower(){
+ bits=Array.from({length:100},()=>({x:innerWidth/2,y:innerHeight*.65,vx:(Math.random()-.5)*9,vy:-Math.random()*8-2,s:2+Math.random()*4,a:1,spin:Math.random()*6}));
+ cancelAnimationFrame(frame);draw();
+}
+function draw(){
+ ctx.clearRect(0,0,innerWidth,innerHeight);
+ bits.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.vy+=.12;b.a-=.008;b.spin+=.1;ctx.save();ctx.globalAlpha=Math.max(0,b.a);ctx.translate(b.x,b.y);ctx.rotate(b.spin);ctx.fillStyle=['#ff9fca','#fff2e7','#d6b7ff','#ffd88e'][Math.floor(Math.random()*4)];ctx.fillRect(-b.s,-b.s,b.s*2,b.s*2);ctx.restore()});
+ bits=bits.filter(b=>b.a>0&&b.y<innerHeight+30);if(bits.length)frame=requestAnimationFrame(draw);else ctx.clearRect(0,0,innerWidth,innerHeight);
+}
+</script>
+</body>
+</html>
